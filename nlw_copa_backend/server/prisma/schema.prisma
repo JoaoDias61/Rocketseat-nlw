@@ -13,11 +13,12 @@ datasource db {
 
 // Bolão
 model Pool {
-  id           String        @id @default(cuid())
-  title        String
-  code         String        @unique
-  createdAt    DateTime      @default(now())
-  ownerId      String?
+  id        String   @id @default(cuid())
+  title     String
+  code      String   @unique
+  createdAt DateTime @default(now())
+  ownerId   String?
+
   participants Participant[]
   owner        User?         @relation(fields: [ownerId], references: [id])
 }
