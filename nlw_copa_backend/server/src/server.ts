@@ -32,6 +32,7 @@ async function bootstrap() {
 
     await fastify.listen({
         port: 2222,
+        host: "0.0.0.0"
     })
 
 }
