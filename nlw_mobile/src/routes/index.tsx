@@ -1,20 +1,20 @@
-import { NavigationContainer } from "@react-navigation/native"
-import { SignIn } from "phosphor-react-native";
-import { AppRoutes } from "./app.routes";
+import { Box } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { useAuth } from "../hooks/useAuth"
+import { useAuth } from '../hooks/useAuth';
 
-interface IndexProps { }
+import { SignIn } from '../screens/SignIn';
+import { AppRoutes } from './app.routes';
 
-export function Routes(props: IndexProps) {
-    const { user } = useAuth();
-    return (
-        <NavigationContainer>
-            {
-                user.name ? <AppRoutes /> :
-                    <SignIn />
-            }
-            <SignIn />
-        </NavigationContainer>
-    )
-};
+export function Routes() {
+
+  const { user } = useAuth();
+
+  return (
+    <Box flex={1} bgColor="gray.900">
+      <NavigationContainer>
+        {user.name ? <AppRoutes /> : <SignIn />}
+      </NavigationContainer>
+    </Box>
+  );
+}
